@@ -1,0 +1,65 @@
+<view class="container">
+    <view class="user-container">
+        <!--右边--> 
+        <image class="arrow" mode="aspectFit" src="../img/hull-star.png"></image>
+        <!--左边-->
+        <image class="user-logo" mode="aspectFit" src="{{backgroundImg}}{{user.studentimg}}"></image>
+        <view>
+            <view class="user-logo-section">
+                <text class="user-info-content user-name" wx:if="{{userid}}">{{user.username}}</text>
+                <text class="user-info-content user-name" wx:if="{{!userid}}">用户名</text>
+                <text class="user-info-content user-gender" wx:if="{{userid}}">{{user.sex}}</text>
+                <text class="user-info-content user-gender" wx:if="{{!userid}}">性别</text>
+            </view>
+            <view class="user-logo-section">
+                <text class="user-info-content user-phone" wx:if="{{userid}}">注册时间：{{grade}}</text>
+                <text class="user-info-content user-phone" wx:if="{{!userid}}">注册时间：暂无数据</text>
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="user-info-list">
+            <view class="user-section">
+                <text class="user-info-title">生日</text>
+                <text class="user-info-content user-deptname" wx:if="{{userid}}">{{birthyear}}</text>
+                <text class="user-info-content user-phone" wx:if="{{!userid}}">暂无数据</text>
+            </view>
+            <view class="user-section">
+                <text class="user-info-title">联系电话</text> 
+                <text class="user-info-content user-depttel">{{user.telnumber}}</text>
+            </view>
+            <view class="user-section">
+                <text class="user-info-title">所属院系</text>
+                <navigator url="../updata/updata?collegeid={{user.collegeid}}&userid={{userid}}" class="user-info-content user-subject">
+                    {{user.collegename}}
+                </navigator>
+                <!-- <text class="user-info-content user-subject">{{user.collegename}}</text> -->
+            </view>
+            <view class="user-section">
+                <text class="user-info-title">逛逛深信院</text>
+                <navigator url="../mapIndex/mapIndex">
+                    点击  👉
+                </navigator>
+            </view>
+            <view wx:if="{{userid}}">
+                <view class="user-section">
+                    <text class="user-info-title">院系教师</text>
+                    <navigator url="../teacher/teacher?collegeid={{user.collegeid}}">
+                        点击  👉
+                    </navigator>
+                </view>
+                <view class="user-section">
+                    <text class="user-info-title">校园部门</text>
+                    <navigator url="../department/department">点击  👉</navigator>
+                </view>
+            </view>
+        </view>
+        <button wx:if="{{userid}}" class="weui-btn" type="primary" bindtap="logout">
+            退出
+        </button>
+        <button wx:if="{{!userid}}" class="weui-btn" type="primary" bindtap="Tologin">
+            切换账号
+        </button>
+        <view wx:if="{{zhufu}}" class="zhufu">亲爱的{{user.username}}用户，今天是您的生日！</view>
+        <view wx:if="{{zhufu}}" class="zhufu">祝您生日快乐！</view>
+    </view>
+</view>

@@ -1,0 +1,143 @@
+/* .page {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.button_container {
+  position: absolute;
+  top:200rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.button {
+  width: 280rpx;
+  height: 140rpx;
+  margin: 20px;
+  background-color: #1f89ecc5;
+  border-radius: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.button text {
+  width: 80%;
+  align-self: center;
+  text-align: center;
+  font-size: large;
+}
+.person {
+  position: absolute;
+  bottom:2vh ;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: larger; 
+  font-family: "楷体";
+  width: 80%;
+  background-color: #53a3eec5;
+  border-radius: 120rpx;
+  align-self: center;
+}
+.copyright1 {
+  position: absolute;
+  width: 80%;
+  bottom:4vh ;
+  color: white;
+  font-size: 40rpx; 
+  font-family: "楷体";
+  border-radius: 120rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-self: center;
+}
+.copyright {
+  position: absolute;
+  width: 12%;
+  height: 6%;
+  top:90vh ;
+}
+.xiaoxun {
+  position: absolute;
+  width: 80%;
+  top:50vh ;
+  color: red;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.swiper {
+  height: 40vh;
+}
+
+.swiper-image {
+  width: 100%;
+  height:100%;
+} */
+/* pages/map/details.wxss */
+.xiaoxun {
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 36rpx;
+  display: flex;
+  margin: auto 30rpx;
+}
+.description {
+  padding: 40rpx 40rpx;
+  line-height: 30px;
+  font-size: 30rpx;
+}
+
+.swiper {
+  height: 40vh;
+}
+
+.swiper-image {
+  width: 100%;
+  height:100%;
+}
+
+.building {
+  height: 10vh;
+  display: flex;
+  margin: auto 20rpx;
+}
+
+.buildingName {
+  margin: auto 15rpx;
+  width: 80%;
+  color: #079df2;
+  font-size: 50rpx;
+  white-space:nowrap;
+}
+
+.nav_map {
+  margin: auto 10rpx;
+}
+
+.nav_map image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.descript {
+  background: #f8f8f8;
+  width: 100%;
+  min-height: 49vh;
+}
+
+.descript rich-text {
+  font-size: 30rpx;
+  color: #000;
+}
+video {
+  width: 100%;
+}

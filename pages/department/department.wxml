@@ -1,0 +1,12 @@
+<view class="container">
+    <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
+        scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view class="scroll-view-item" wx:key="*this" wx:for="{{Deptslist}}" wx:for-item="dept">    
+                <text class="dept-name">{{dept.name}}</text>
+                <text  class="dept-count" bindtap="callPhone" data-phone="{{dept.tel}}">{{dept.tel}}</text>
+                <navigator url="../teacher/teacher?collegeid={{dept.collegeid}}" wx:if="{{!dept.tel}}">
+                    <view>点击👉</view>  
+                </navigator>
+        </view>
+    </scroll-view>
+</view>

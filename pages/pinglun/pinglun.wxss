@@ -1,0 +1,42 @@
+.msg-box{
+  padding: 20px;
+}
+.send-box{
+  display: flex;
+}
+.input{
+  border: 1px solid #B0C4DE;
+  padding: 5px;
+}
+.msg-info{
+  display: block;
+  margin: 10px 0 0 0 ;
+  color: #339900;
+}
+.place-input{
+  color: #87CEFF;
+}
+.list-view{
+  margin: 20px 0 0 0;
+}
+
+.text-item-id{
+  margin-top: 10rpx;
+  margin-left:20rpx;
+	font-size: 35rpx;
+	color: #87CEFF;
+}
+.text-item-time{
+  margin-left:20rpx;
+	font-size: 24rpx;
+	color: #888;
+}
+.text-item-content{
+  margin-left: 24rpx;
+  font-size: 34rpx;
+  border-bottom: 1px dashed #87CEFF;
+}
+.close-btn{
+  float: right;
+  margin: 5px 5px 0 0;
+}

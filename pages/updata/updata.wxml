@@ -1,0 +1,21 @@
+<view>
+  <view class="item">
+    <label class="first">点击下方选择学院名称：</label>
+    <!-- 通过点击事件改变图片的旋转角度、自定义下拉框的高度 -->
+    <view class="value">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <picker bindchange="bindCollegeChange" value="{{index}}" range="{{array}}">
+            <view wx:if="{{index}}" class="picker" class="weui-input">{{array[index]}}</view>
+            <view wx:else class="picker" class="weui-input" style="color: #888585;">请选择</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    目前您所在的院系：{{collegename}}
+  </view>
+
+  <button class="weui-btn" type="primary" bindtap="updateCollege">提交</button>
+</view>

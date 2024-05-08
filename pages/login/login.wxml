@@ -1,0 +1,142 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view> 
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <!--以上不动-->
+      <view class="weui-tab__panel">
+        <!--登陆块-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="weui-cells__title center">请登陆</view>
+          <form class="login-form"> 
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">账户</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <input name="telnumber" type="text" bindinput="bindPhoneInput" class="weui-input" placeholder="请输入用户名/手机号" />
+                </view>
+              </view>
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view  class="weui-label">密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <input name="password" bindinput="bindPasswordInput" type="password" class="weui-input" placeholder="请输入密码" />
+                </view>
+              </view>
+            </view>
+          </form>
+          <text class="{{ isError ? 'error' : ''}}">{{errorText}}</text>
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" bindtap="login">登陆</button>
+            </view>
+            <view class="title">登陆后可查看更多信息哦！</view>
+        </view>
+
+        <!--注册块-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="weui-cells__title center">请注册</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input name="grade" value="{{nowtime}}" type="text" bindinput="bindGradeInput" class="weui-input" wx:if="{{false}}"/>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">用户名</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="username" type="text" bindinput="bindUsernameInput" class="weui-input" placeholder="请输入用户名" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">性别</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <view wx:if="{{index}}" class="picker" class="weui-input">{{array[index]}}</view>
+                  <view wx:else class="picker" class="weui-input" style="color: #888585;">请选择</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">出生日期</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker mode="date" header-text="选择时间"  value="{{zcbirthyear}}" bindchange="bindDateChange">
+                  <view wx:if="{{zcbirthyear}}" class="weui-input">{{zcbirthyear}}</view>
+                  <view wx:else class="weui-input" style="color: #888585;">请选择</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">所在院系</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker bindchange="bindCollegeChange" value="{{index}}" range="{{collegeArr}}">
+                  <view wx:if="{{index}}" class="picker" class="weui-input">{{collegeArr[index]}}</view>
+                  <view wx:else class="picker" class="weui-input" style="color: #888585;">请选择</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="password" type='password' bindinput="bindPasswordInput" class="weui-input" placeholder="请输入密码" />
+              </view>
+            </view>
+            
+              <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">确认密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="repassword" type='password' bindinput="bindRePasswordInput" class="weui-input" placeholder="再次输入密码" />
+              </view>
+            </view>
+             <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">手机号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="telnumber" type="number" class="weui-input" bindinput="bindPhoneInput" placeholder="请输入手机号" />
+                </view>
+                
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindinput="makecodeInput" type="text" class="weui-input" placeholder="请输入验证码" />
+                </view>
+                <view class="weui-cell__ft">
+                  <view bindtap="getcode" class="makecode">{{code}}</view>
+                </view>
+            </view>
+          </view>
+          
+           <view class="weui-btn-area">
+             <!--进行验证码对比 成功后注册-->
+              <button class="weui-btn" type="primary" bindtap="register">注册</button>
+            </view>
+            <view class="title">注册后可查看更多信息哦！</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,117 @@
+<view class='productNav'>
+  <!-- 左侧 -->
+  <view class='left'>
+    <view class="{{active==0?'selected':'normal'}}" id="0" bindtap='switchNav'>通知公告</view>
+    <view class="{{active==1?'selected':'normal'}}" id="1" bindtap='switchNav'>新生报到</view>
+    <view class="{{active==2?'selected':'normal'}}" id="2" bindtap='switchNav'>新生必备</view>
+    <view class="{{active==3?'selected':'normal'}}" id="3" bindtap='switchNav'>交通指引</view>
+    <view class="{{active==4?'selected':'normal'}}" id="4" bindtap='switchNav'>Q & A</view>
+  </view>
+  <!-- 右侧 -->
+  <view class='right'>
+    <view style="height: 100%;">
+      <!-- current:当前所在滑块的 index -->
+      <!-- vertical:滑动方向是否为纵向 -->
+      <swiper current='{{currentTab}}' vertical='{{true}}'>
+        <!-- catchtouchmove 阻止弹窗后滚动穿透 -->
+        <swiper-item id="0" catchtouchmove="false">
+            <view class="headtext">通知公告</view>
+            <text style="display: block;margin: 40rpx 0 0 20rpx;" wx:if="{{noticeData.length==0}}">暂无通知与公告！</text>
+            <view class="notice-view" wx:for="{{noticeData}}" wx:key="id" wx:for-index="id">
+              <view data-index="{{id}}" bindtap="detailMsg">
+                <view class="text-item-title">{{item.title}}</view>
+                <view class="text-item-content">{{item.noticemsg}}</view>
+                <view class="text-item-time">{{item.publishDate}}</view>
+              </view>              
+            </view>
+        </swiper-item>
+        <swiper-item id="1" catchtouchmove="false">
+            <view class="headtext">新生报到</view>
+            <view class="table">
+                <!-- 表头(即第一行) -->
+                <view class="tr">
+                    <view class="th">时间</view>
+                    <view class="th">备注</view>
+                </view>
+                <!-- 表格第二行 -->
+                <view class="tr" wx:for="{{goBackSchool}}" wx:key="id">
+                    <view class="td">{{item.backTime}}</view>
+                    <view class="td">{{item.beizhu}}</view>    
+                </view>
+            </view>
+            <view class="backMsg">
+              <view class="backMsg-title">入校校门:</view>
+              <view class="backMsg-detail">学校北门、南门、东门、东三门（车辆即走即停）</view>
+              <view class="backMsg-title">报到地点:</view>
+              <navigator class="backMsg-detail" class="text" url='../detail/detail?latitude=22.681454&longitude=114.217825'>深圳信息职业技术学院体育馆</navigator>
+            </view>
+        </swiper-item>
+        <swiper-item id="2" catchtouchmove="false">
+          <scroll-view style="height: 100%;" scroll-y="true" scroll-with-animation>     
+            <view class="headtext">新生必备</view>
+            <view class="docuInfo">
+              <view class="info-title">资料携带</view>
+              <view class="detailBox" wx:for="{{docuInfoArr}}" wx:key="id">
+                <view class="item-detail">● {{item}}</view>
+              </view>
+            </view>
+            <view class="dailyprod">
+              <view class="info-title">学习/生活用品</view>
+              <view class="detailBox" wx:for="{{dailyprodArr}}" wx:key="id">
+                <view class="item-detail">● {{item}}</view>
+              </view>
+            </view>
+            <view class="footBox" style="margin:10rpx 0 10rpx 15prx;">
+              <text style="font-size: 26rpx;color: #888;">>>物品太多也可选择提前将物品邮寄至学校！</text>
+              <view style="font-weight: bold;color:#53a3eec5 ;">学校邮寄地址：</view>
+              <view style="font-size: 26rpx;">广东省深圳市龙岗区龙翔大道2188号</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item id="3" catchtouchmove="false">
+          <scroll-view style="height: 100%;" scroll-y="true" scroll-with-animation>
+            <view class="headtext">交通指引</view>
+              <view class="traffic" wx:for="{{trafficData}}" wx:key="id">
+                <view class="traffic-title">{{item.title}}</view>
+                <view class="traffic-content">>>{{item.content}}</view>
+                <view class="traffic-title">途径公交：</view>
+                <view style="font-size: 26rpx;">{{item.busNo}}</view>
+              </view>
+              <view class="routetitle">深圳坪山站——>信息学院</view>            
+              <view class="routepoly" wx:for="{{routepoly1Data}}" wx:key="id">                
+                <view class="ztStyle">方法{{item.id}}：{{item.routeOutline}}</view>
+                <view class="ztStyle">{{item.routeDetail}}</view>
+              </view>
+              <view class="routetitle">深圳北站——>信息学院</view>            
+              <view class="routepoly" wx:for="{{routepoly2Data}}" wx:key="id">                
+                <view class="ztStyle">方法{{item.id}}：{{item.routeOutline}}</view>
+                <view class="ztStyle">{{item.routeDetail}}</view>
+              </view>
+              <view class="routetitle">深圳东站——>信息学院</view>            
+              <view class="routepoly" wx:for="{{routepoly3Data}}" wx:key="id">                
+                <view class="ztStyle">方法{{item.id}}：{{item.routeOutline}}</view>
+                <view class="ztStyle">{{item.routeDetail}}</view>
+              </view>
+              <view class="routetitle">深圳站——>信息学院</view>            
+              <view class="routepoly" wx:for="{{routepoly4Data}}" wx:key="id">                
+                <view class="ztStyle">方法{{item.id}}：{{item.routeOutline}}</view>
+                <view class="ztStyle">{{item.routeDetail}}</view>
+              </view>
+              <view style="font-size: 24rpx;color: #333;margin: 10rpx 0 0 10rpx;">
+                <view>温馨提示：</view>
+                <view>高铁买票软件： 铁路12306</view>
+                <view>地铁/公交乘坐小程序： 深圳市乘车码（公交地铁通用）</view>
+              </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item id="4" catchtouchmove="false">
+            <view class="headtext">Q & A</view>
+            <view class="QAbox" wx:for="{{QAData}}" wx:key="id">
+              <view class="question" style="font-size: 24rpx;">Q : {{item.ques}}</view>
+              <view style="font-size: 24rpx;">A : {{item.answ}}</view>
+            </view>
+        </swiper-item>
+      </swiper> 
+    </view>
+  </view>
+</view>

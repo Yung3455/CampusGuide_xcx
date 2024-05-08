@@ -1,0 +1,11 @@
+<view>
+  <view class="title">点击地图进行导航</view>
+  <!-- markers="{{markers}}" longitude="{{xz_longitude}}" latitude="{{xz_latitude}}" -->
+  <map id="map" longitude="{{xz_longitude}}" latitude="{{xz_latitude}}" markers="{{markers}}"
+      scale="18"  style="width: 100%; height: 70vh;" bindtap="click" polyline="{{polyline}}" enable-3D="true">
+      <cover-view class="distance">目标在您的“{{fangxiang}}”方向</cover-view>
+      <cover-view class="distance1">目标距您“{{juli}}”米</cover-view>
+  </map>
+  <view class="title_view">您的选择是：<text class="mbBox">{{mb_name}}</text> </view> 
+  <view class="title_view">地点在：<text class="mbBox">{{mb_floor}}</text> </view>
+</view>  

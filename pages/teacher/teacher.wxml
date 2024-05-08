@@ -1,0 +1,13 @@
+<view class="container">
+    <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" 
+        scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view class="scroll-view-item" wx:if="{{tishi}}">此院系暂无教师，或你未加入院系。</view>
+        <view class="scroll-view-item" wx:if="{{tishi}}"> 登陆官网即可设置信息。</view>
+        <view class="scroll-view-item" wx:key="id" wx:for="{{teacherlist}}"  wx:for-item="teacher">
+            <view>{{index+1}}</view>
+                <text class="teacher-count">{{teacher.username}}（{{teacher.title}}）</text>
+                <text class="teacher-count">{{teacher.degree}}</text>
+                <view class="teacher-name">{{teacher.jieshao}}</view>
+        </view>
+    </scroll-view>
+</view>

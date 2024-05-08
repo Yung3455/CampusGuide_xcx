@@ -1,0 +1,30 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/pinglun/pinglun",
+                    "pathName": "pages/pinglun/pinglun",
+                    "query": "id=8&title=%E7%B4%AB%E8%8D%86%E9%98%81&grade=10&mycomment=%E5%BC%80",
+                    "scene": null
+                },
+                {
+                    "name": "pages/welcome/welcome",
+                    "pathName": "pages/welcome/welcome",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

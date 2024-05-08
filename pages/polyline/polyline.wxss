@@ -1,0 +1,70 @@
+.navi_map {
+  width: auto;
+  height: 100vh;
+}
+
+.distance {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+  color: #fff;
+  background: #0091ff;
+  border-radius: 5px;
+}
+.title {
+  margin: auto auto;
+  width: 80%;
+  color: #079df2;
+  font-size: 50rpx;
+  /* white-space:nowrap; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.title_view {
+  width: 100%;
+  font-size: 36rpx;
+  color: #079df2;
+  display: flex;
+  margin: 20rpx 20rpx;
+}
+.mbBox{
+  width: 65%;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  color: black;
+  font-size: 28rpx;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.distance {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+  color: #fff;
+  background: #0091ff;
+  border-radius: 5px;
+}
+.distance1 {
+  position: absolute;
+  bottom: 80px;
+  right: 10px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+  color: #fff;
+  background: #0091ff;
+  border-radius: 5px;
+}

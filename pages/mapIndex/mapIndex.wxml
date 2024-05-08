@@ -1,0 +1,54 @@
+<view style="width: 100%;">
+  <!--顶部导航栏--> 
+  <scroll-view scroll-x="true">
+    <view class="top-swich" style="width:{{sceneryList.length * 120 < windowWidth  ? windowWidth : sceneryList.length * 120}}rpx;" 
+    wx:if="{{!fullscreen}}">
+      <label wx:for="{{sceneryList}}" wx:key="id" id="{{index}}"  bindtap="changePage" 
+            class="top-swich-btn {{scenerylistid == index ? 'active' : ''}}">
+        {{item.sceneryname}}
+      </label>
+    </view>
+  </scroll-view>  
+  <!--地图显示 include-points="{{scenery}}"  --> 
+  <map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{scenery}}"
+        scale="15" enable-overlooking="true" enable-traffic="true" show-compass="true"
+        style="width: auto; height:{{fullscreen ? 94 : 48}}vh;"  show-location="true"
+        bindmarkertap="markertap">
+        <cover-view class="controls {{fullscreen ? 'full' : ''}}">
+      <cover-view bindtap="navigateSearch">
+        <cover-image class="img" src="{{ico}}search.png" />
+      </cover-view>
+      <cover-view bindtap="navigateLocation">
+        <cover-image class="img" src="{{ico}}location.png" />
+      </cover-view>
+    </cover-view>
+  </map>
+  <!--中间说明 点击下去-->
+  <button bindtap="clickButton" style="width:100%">
+    共有{{scenery.length}}个目标 ◕‿◕
+  </button>
+  <!--景点的详细清单-->
+  <scroll-view scroll-y="true" style="height:{{fullscreen ? 0 : 40}}vh" scroll-top="{{(isSelectedBuild -1 ) * 70}}">
+    <view wx:for="{{scenery}}" wx:key="id" class="building-item">
+      <view class="img-view">
+         <!--跳转景点简介-->
+        <navigator class="img" url='../detail/detail?title={{item.sname}}&description={{item.description}}&tximg={{item.tximg}}&longitude={{item.longitude}}&latitude={{item.latitude}}&floor={{item.floor}}&id={{item.id}}&grade={{item.grade}}&img="true"&T="true"'>
+          <view class="imgBox"><image src="{{backgroundImg}}{{item.tximg}}" mode="aspectFit"> </image></view>
+          <view class="item">
+            <view class="itemName">
+              {{item.sname}}<text class="hotw">（热度：{{item.grade}}）</text>
+            </view>
+            <view class="itemFloor" >
+              位置：{{item.floor}}
+            </view>
+          </view>
+        </navigator>
+        <!--地点导航-->
+        <navigator class="text" 
+        url='../polyline/polyline?latitude={{item.latitude}}&longitude={{item.longitude}}&name={{item.sname}}&floor={{item.floor}}&xz_latitude={{xz_latitude}}&xz_longitude={{xz_longitude}}'>
+          <image src="{{ico}}nav.png"> </image>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

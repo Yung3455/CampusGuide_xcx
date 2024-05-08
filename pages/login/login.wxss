@@ -1,0 +1,41 @@
+/* pages/login/login.wxss */
+.page{
+  color: #5c3b78;
+}
+button .weui-btn{
+  background-color: #21142c;
+}
+.radiogroupBox{
+  display: flex;
+  flex-direction: row;
+}
+.radiobox{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10rpx;
+}
+.title{
+  display: block;
+  text-align: center;
+  font-size: 38rpx;
+  line-height: 72rpx;
+  color: rgb(255, 0, 0);
+}
+.login-form {
+  position: relative;
+  display:block;    
+  padding-bottom: 20px;
+}
+.error {
+  position: absolute;
+  left: 10%;
+  display: block;
+  padding-left: 28rpx;
+  color: red;
+  height: 28rpx;
+  font-size: 28rpx;
+  line-height: 1;
+  margin-top: -20rpx;
+}

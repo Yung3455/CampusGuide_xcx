@@ -1,0 +1,29 @@
+.sanjiao{
+  width: 18rpx;
+  height: 10rpx;
+  margin-left: 20rpx;
+  transition: 0.5s;/* 选转图片过渡 */
+ }
+ .select{
+  position: absolute;
+  z-index: 10;
+  border: 2rpx solid #aaaaaa;
+  padding: 0 8rpx;
+  top:46rpx;
+  left: -10rpx;
+  width: 210rpx;
+  overflow: auto;
+  height: 0;
+  max-height: 200rpx;
+  background-color:#fff;
+  box-sizing: border-box;
+  transition: height 0.5s;/* 高度变换过渡 */
+ }
+ .select .type{
+  color: #aaaaaa;
+  border-top: 2px solid #dadada;
+  padding: 6rpx;
+ }
+ .select :first-child{
+  border: 0;
+ }

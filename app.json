@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/user/user",
+    "pages/mapIndex/mapIndex",
+    "pages/detail/detail",
+    "pages/pinglun/pinglun",
+    "pages/search/search",
+    "pages/polyline/polyline",
+    "pages/login/login",
+    "pages/department/department",
+    "pages/teacher/teacher",
+    "pages/updata/updata",
+    "pages/welcome/welcome"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "此时您需导航，您的位置信息将用于辅助规划路线"
+    }
+  },
+  "window": { 
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3f8aed",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.5",
+      "provider": "wx069ba97219f66d99"
+    },
+    "routePlan": {
+      "version": "1.0.19",
+      "provider": "wx50b5593e81dd937a"
+    },
+    "subway": {
+      "version": "1.0.13",
+      "provider": "wx6aaf93c4435fa1c1"
+      },
+      "chooseLocation": {
+        "version": "1.0.10",
+        "provider": "wx76a9a06e5b4e693e"
+      }
+  },
+  "tabBar": {
+    "selectedColor":"#33a3dc",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/pages/img/iconpath/home.png",
+        "selectedIconPath": "/pages/img/iconpath/home-.png"
+      },
+      {
+        "pagePath": "pages/mapIndex/mapIndex",
+        "text": "智慧导览",
+        "iconPath": "/pages/img/iconpath/navi.png",
+        "selectedIconPath": "/pages/img/iconpath/navi-.png"
+      },
+      {
+        "pagePath": "pages/welcome/welcome",
+        "text": "迎新季",
+        "iconPath": "/pages/img/iconpath/wel.png",
+        "selectedIconPath": "/pages/img/iconpath/wel-.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/pages/img/iconpath/me.png",
+        "selectedIconPath": "/pages/img/iconpath/me-.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

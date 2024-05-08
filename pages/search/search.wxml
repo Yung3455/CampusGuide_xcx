@@ -1,0 +1,35 @@
+<!--顶部搜索框-->
+<view class="search">
+  <view class="search-icon">
+    <icon type="search" size="16" color="blue" />
+  </view>
+  <view class="search-form">
+    <form>
+      <input bindinput="bindSearchInput" type="text" name="sceneryName" placeholder="请输入景点名称关键词" 
+        value="{{keyword}}" style="font-size: 30rpx;" />
+    </form>
+  </view>
+  <view class="search-icon" bindtap="reset">
+    <icon type="cancel" size="16" color="purple" />
+  </view>
+</view>
+ 
+<!--结果显示部分-->
+<view wx:for="{{showData}}" wx:key="name" class="building-item">
+  <view style="height:100%; display: flex;">
+    <navigator class="img" url='../detail/detail?title={{item.sname}}&floor={{item.floor}}&description={{item.description}}&tximg={{item.tximg}}&longitude={{item.longitude}}&latitude={{item.latitude}}&img="true"&T="true"'>
+      <view class="imgBox"><image src="{{backgroundImg}}{{item.tximg}}" mode="scaleToFill"> </image></view>
+      <view class="item">
+        <view class="itemName">
+          {{item.sname}}
+        </view>
+        <view class="itemFloor" wx:if="{{item.floor}}">
+          位置：{{item.floor}}
+        </view>
+      </view>
+    </navigator>
+    <navigator class="text" url='../polyline/polyline?&name={{item.sname}}&floor={{item.floor}}&latitude={{item.latitude}}&longitude={{item.longitude}}&xz_latitude={{xz_latitude}}&xz_longitude={{xz_longitude}}'>
+      <image src="{{ico}}location.png"> </image>
+    </navigator>
+  </view>
+</view>

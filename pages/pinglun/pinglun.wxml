@@ -1,0 +1,18 @@
+<view class="msg-box">
+    <!--留言--> 
+    <view class="send-box">
+      <input bindinput="changeInputValue" class="input" type="text" value="{{inputVal}}" 
+      placeholder="请输入评语……" placeholder-class="place-input"/>
+      <button size="mini" type="primary" bindtap="addMsg" wx:if="{{mycomment}}">发表</button>
+    </view>
+    <view>id:{{sceneryid}}</view>
+    <!--留言列表-->
+    <text class="msg-info" wx:if="{{msgData.length==0}}">暂无留言……^_^</text>
+    <view class="list-view">
+      <view class="text-list" wx:for="{{msgData}}" wx:key="id">
+        <view class="text-item-id">来自{{item.studentid}}用户：</view>
+        <view class="text-item-time">{{item.nowtime}}</view>
+        <view class="text-item-content">{{item.content}}</view>
+      </view>
+    </view>
+  </view>

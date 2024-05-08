@@ -1,0 +1,39 @@
+<view>
+  <video wx:if="{{video}}"
+    show-mute-btn="{{true}}" 
+    src="{{channels[0].playUrl}}"
+    picture-in-picture-mode="{{['push', 'pop']}}" show-progress="{{true}}" show-casting-button="{{true}}" show-fullscreen-btn="{{true}}" show-screen-lock-button="{{true}}" enable-auto-rotation="{{true}}" enable-progress-gesture="{{false}}" bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+    bindleavepictureinpicture='bindVideoLeavePictureInPicture' 
+    bindfullscreenchange="screenChange" loop="{{true}}">
+  </video>
+
+  <!--展示图 indicator-dots="false" --> 
+  <swiper class="swiper" indicator-active-color="#000" autoplay="1" interval="3000" duration="500" wx:if="{{img}}">
+      <swiper-item>
+        <image class="swiper-image"   src="{{backgroundImg}}{{tximg}}"> </image>
+      </swiper-item>
+  </swiper> 
+   <!--建筑名-->
+  <view class="building">
+    <view class="buildingName">{{title}}</view>
+     <!--导航-->
+    <view  class="nav_map" bindtap="wordYun">
+      <image src="{{ico}}voice.png"></image>
+    </view>
+    
+    <navigator class="nav_map" url="../polyline/polyline?latitude={{latitude}}&longitude={{longitude}}&name={{title}}&floor={{floor}}&xz_latitude={{xz_latitude}}&xz_longitude={{xz_longitude}}" wx:if="{{T}}">
+      <image src="{{ico}}nav.png"> </image>
+    </navigator>
+    <!-- wx:if="{{indexPar.mycomment}}" -->
+    <navigator wx:if="{{zhanshi}}"  class="nav_map" url="../pinglun/pinglun?id={{id}}&title={{title}}&grade={{grade}}&mycomment={{indexPar.mycomment}}">
+      <image src="{{ico}}commit.png"> </image>
+    </navigator>
+  </view>
+  <view class="xiaoxun">{{xiaoxun}}</view>
+ <!--建筑物简介-->
+  <view class="descript">
+    <view class='description'>
+      <rich-text nodes="{{description}}"></rich-text>
+    </view>
+  </view>
+</view>
